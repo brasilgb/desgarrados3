@@ -16,6 +16,7 @@ export default function PublicLayout({ children }: PropsWithChildren) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [openDesktopMenu, setOpenDesktopMenu] = useState<'culture' | 'land' | null>(null);
     const [openMobileGroup, setOpenMobileGroup] = useState<'culture' | 'land' | null>(null);
+    const [showCookieNotice, setShowCookieNotice] = useState(false);
     const headerRef = useRef<HTMLElement>(null);
     const mobileMenuButtonRef = useRef<HTMLButtonElement>(null);
     const cultureMenuButtonRef = useRef<HTMLButtonElement>(null);
@@ -28,6 +29,19 @@ export default function PublicLayout({ children }: PropsWithChildren) {
         setOpenMobileGroup(null);
         setMobileMenuOpen(false);
     }, [currentUrl]);
+
+    useEffect(() => {
+        try {
+            setShowCookieNotice(localStorage.getItem('desgarrados-cookie-choice') !== 'essential-only');
+        } catch {
+            setShowCookieNotice(true);
+        }
+    }, []);
+
+    function acceptEssentialCookies() {
+        try { localStorage.setItem('desgarrados-cookie-choice', 'essential-only'); } catch { /* keep notice dismissible when storage is blocked */ }
+        setShowCookieNotice(false);
+    }
 
     useEffect(() => {
         function closeMenusFromOutside(event: PointerEvent) {
@@ -126,5 +140,8 @@ export default function PublicLayout({ children }: PropsWithChildren) {
                 <a href="https://abrasilsistemas.com.br" target="_blank" rel="noopener noreferrer" className="underline decoration-white/30 underline-offset-4 hover:text-white">Desenvolvido por ABrasil Sistemas ↗</a>
             </div>
         </footer>
+        {showCookieNotice && <aside role="dialog" aria-label="Preferências de cookies" aria-describedby="cookie-notice-description" className="fixed inset-x-3 bottom-3 z-50 mx-auto max-w-3xl rounded-2xl border border-[#d9d0bf] bg-[#fbf8f1] p-5 text-[#28271f] shadow-2xl sm:inset-x-5 sm:bottom-5">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"><div><h2 className="font-serif text-lg font-bold text-[#31453b]">Cookies e armazenamento</h2><p id="cookie-notice-description" className="mt-1 max-w-xl text-sm leading-5 text-stone-700">Usamos cookies necessários para sessão e segurança, além de armazenamento local para preferências. Não usamos cookies de publicidade ou analytics.</p><Link href="/politica-de-privacidade#cookies" className="mt-1 inline-block text-sm font-semibold text-[#7e402b] underline">Saiba mais</Link></div><button type="button" onClick={acceptEssentialCookies} className="shrink-0 rounded-lg bg-[#31453b] px-4 py-2.5 text-sm font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#bb623e]">Continuar com cookies necessários</button></div>
+        </aside>}
     </div>;
 }

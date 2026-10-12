@@ -35,9 +35,10 @@ return [
         ],
     ],
 
-    // Must be deliberately configured with a reverse-geocoder endpoint compatible with Nominatim's JSON response.
+    // Override only when using another endpoint compatible with Nominatim's JSON response.
     'reverse_geocoder' => [
-        'url' => env('REVERSE_GEOCODER_URL'),
+        // Nominatim-compatible endpoint; deployments may override it.
+        'url' => env('REVERSE_GEOCODER_URL', 'https://nominatim.openstreetmap.org/reverse'),
     ],
 
 ];

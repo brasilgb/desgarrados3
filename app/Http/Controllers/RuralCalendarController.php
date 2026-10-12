@@ -29,7 +29,7 @@ class RuralCalendarController extends Controller
         abort_unless(is_string($endpoint) && filter_var($endpoint, FILTER_VALIDATE_URL), 503, 'Serviço de localização indisponível.');
 
         try {
-            $result = Http::acceptJson()->timeout(5)->get($endpoint, [
+            $result = Http::acceptJson()->withUserAgent(config('app.name').' location lookup ('.config('app.url').')')->timeout(8)->get($endpoint, [
                 'format' => 'jsonv2', 'lat' => $coordinates['latitude'], 'lon' => $coordinates['longitude'], 'zoom' => 10,
             ])->throw()->json();
         } catch (\Throwable) {
