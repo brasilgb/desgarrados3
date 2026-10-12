@@ -132,6 +132,9 @@ return [
         'update_date_on_publish' => true,
     ],
 
+    // Removing an existing ZARC copy is destructive and must be approved separately, after a backup.
+    'zarc_cleanup_authorized' => (bool) env('DB_ZARC_CLEANUP_AUTHORIZED', false),
+
     /*
     |--------------------------------------------------------------------------
     | Redis Databases

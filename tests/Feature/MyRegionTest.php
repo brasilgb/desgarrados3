@@ -7,11 +7,9 @@ use App\Models\ProductionGuide;
 use App\Models\Publication;
 use App\Models\RegionalEvent;
 use App\Models\RegionalHoliday;
-use App\Models\RegionalIntegration;
 use App\Models\RuralCalendarEntry;
 use App\Models\TerritorialUnit;
 use App\Models\User;
-use App\Models\ZarcRecord;
 use Database\Seeders\CulturalArchiveSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -41,8 +39,6 @@ class MyRegionTest extends TestCase
     public function test_selected_region_only_shows_verified_local_and_state_records(): void
     {
         $this->catalogue();
-        RegionalIntegration::create(['key' => 'mapa_zarc', 'name' => 'ZARC', 'data_type' => 'dataset', 'source_url' => 'https://www.gov.br/agricultura', 'last_synced_at' => now()]);
-        ZarcRecord::create(['dataset_key' => 'safra-2026', 'row_hash' => str_repeat('a', 64), 'season_start' => 2026, 'season_end' => 2027, 'culture' => 'Soja', 'state_code' => 'RS', 'municipality_code' => '4300406', 'municipality' => 'Alegrete', 'source_row' => ['Portaria' => 'Portaria 1']]);
         RuralCalendarEntry::create(['activity' => 'Arroz irrigado', 'category' => 'Arroz', 'activity_type' => 'agriculture', 'frequency' => 'seasonal', 'region' => 'Fronteira Oeste', 'state' => 'RS', 'municipality' => 'Alegrete', 'starts_on' => today()->addDays(4), 'ends_on' => today()->addDays(12), 'reference_period' => 'Safra 2026/2027', 'source_name' => 'MAPA', 'source_url' => 'https://www.gov.br/agricultura', 'verified_at' => today(), 'is_published' => true]);
         RegionalEvent::create(['name' => 'Feira de Alegrete', 'slug' => 'feira-alegrete', 'category' => 'Feira', 'municipality' => 'Alegrete', 'state' => 'RS', 'starts_on' => today()->addDays(10), 'source_name' => 'Prefeitura', 'source_url' => 'https://example.org', 'verified_at' => today(), 'status' => 'published']);
         RegionalEvent::create(['name' => 'Evento de outro município', 'slug' => 'evento-bage', 'category' => 'Feira', 'municipality' => 'Bagé', 'state' => 'RS', 'starts_on' => today()->addDays(10), 'source_name' => 'Prefeitura', 'source_url' => 'https://example.org', 'verified_at' => today(), 'status' => 'published']);
@@ -58,7 +54,7 @@ class MyRegionTest extends TestCase
 
         $this->get('/minha-regiao?state=RS&municipality_code=4300406')->assertOk()->assertInertia(fn ($page) => $page
             ->where('regionData.municipality.name', 'Alegrete')
-            ->where('regionData.cultures', ['Soja'])
+            ->missing('regionData.cultures')->missing('regionData.zarcSyncedAt')
             ->has('regionData.activities', 1)->where('regionData.activities.0.activity', 'Arroz irrigado')
             ->has('regionData.events', 1)->where('regionData.events.0.name', 'Feira de Alegrete')
             ->has('regionData.holidays', 1)->where('regionData.holidays.0.name', 'Feriado nacional')

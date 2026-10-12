@@ -6,12 +6,9 @@ use App\Models\ProductionGuide;
 use App\Models\Publication;
 use App\Models\RegionalEvent;
 use App\Models\RegionalHoliday;
-use App\Models\RegionalIntegration;
 use App\Models\RuralCalendarEntry;
 use App\Models\TerritorialUnit;
-use App\Models\ZarcRecord;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cache;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -55,15 +52,8 @@ class MyRegionController extends Controller
             $name = $municipality->name;
             $from = today()->toDateString();
             $until = today()->addYear()->toDateString();
-            $zarcSyncedAt = RegionalIntegration::query()->whereKey('mapa_zarc')->value('last_synced_at');
-            $cultures = Cache::remember('my-region:zarc-cultures:'.$code.':'.($zarcSyncedAt ?? 'never'), now()->addMinutes(30), fn () => ZarcRecord::query()
-                ->where('state_code', $stateCode)->where('municipality_code', $code)->distinct()->orderBy('culture')->pluck('culture')->all());
-
             $data = [
                 'municipality' => ['name' => $name, 'code' => $code, 'state_code' => $stateCode, 'state_name' => $municipality->state_name, 'region_name' => $municipality->region_name],
-                'cultures' => $cultures,
-                'zarcSyncedAt' => $zarcSyncedAt,
-                'zarcLastError' => RegionalIntegration::query()->whereKey('mapa_zarc')->value('last_error'),
                 'activities' => RuralCalendarEntry::query()->where('is_published', true)->where('state', $stateCode)->where('municipality', $name)->whereDate('ends_on', '>=', $from)->orderBy('starts_on')->limit(12)->get(),
                 'events' => RegionalEvent::query()->where('status', 'published')->where('state', $stateCode)->where('municipality', $name)->whereRaw('COALESCE(ends_on, starts_on) >= ?', [$from])->orderBy('starts_on')->limit(12)->get(),
                 'holidays' => RegionalHoliday::query()->whereBetween('date', [$from, $until])->where(fn ($query) => $query->whereNull('state_code')->orWhere('state_code', $stateCode))->orderBy('date')->limit(24)->get(),

@@ -16,7 +16,7 @@ export const cultureLinks: PublicNavigationLink[] = [
 export const landLinks: PublicNavigationLink[] = [
     { href: '/minha-regiao', label: 'Minha Região', description: 'Histórias e informações locais', icon: MapPinned },
     { href: '/nossa-terra', label: 'Central Campeira', description: 'Ferramentas e calculadoras', icon: Wheat },
-    { href: '/calendario-rural', label: 'Calendário rural e ZARC', description: 'Atividades e zoneamento', icon: CalendarDays },
+    { href: '/calendario-rural', label: 'Calendário rural', description: 'Atividades sazonais', icon: CalendarDays },
     { href: '/agenda-regional', label: 'Agenda regional', description: 'Eventos e feriados', icon: CalendarRange },
     { href: '/nossa-terra/producao', label: 'Produção rural', description: 'Guias e referências', icon: Sprout },
 ];

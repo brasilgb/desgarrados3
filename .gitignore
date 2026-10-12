@@ -32,3 +32,8 @@ bun.lockb
 /.nova
 /.vscode
 /.zed
+
+# ZARC data is consulted on the official MAPA panel; never version local copies.
+*zarc*.csv
+*ZARC*.csv
+/storage/app/zarc/

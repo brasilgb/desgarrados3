@@ -12,7 +12,7 @@ class SyncRegionalIntegrations extends Command
 {
     protected $signature = 'campeira:sync {source? : Chave da fonte; omita para sincronizar todas as fontes ativas}';
 
-    protected $description = 'Sincroniza localidades, feriados e dados CSV oficiais do ZARC';
+    protected $description = 'Sincroniza localidades do IBGE e feriados oficiais';
 
     public function handle(IntegrationCatalog $catalog, RegionalIntegrationSync $sync): int
     {

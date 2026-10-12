@@ -25,7 +25,6 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withSchedule(function (Schedule $schedule): void {
         $schedule->command('campeira:sync ibge_locations')->monthlyOn(1, '02:00')->withoutOverlapping();
         $schedule->command('campeira:sync brasilapi_holidays')->yearlyOn(1, 1, '02:30')->withoutOverlapping();
-        $schedule->command('campeira:sync mapa_zarc')->weeklyOn(1, '03:00')->withoutOverlapping();
         $schedule->command('media:sync-scheduled-visibility')->everyMinute()->withoutOverlapping();
     })
     ->withMiddleware(function (Middleware $middleware): void {

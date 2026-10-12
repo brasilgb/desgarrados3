@@ -12,9 +12,8 @@ use App\Services\RegionalIntegrations\RegionalIntegrationSync;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Client\Request;
 use Illuminate\Http\Client\RequestException;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
-use RuntimeException;
+use Illuminate\Support\Facades\Schema;
 use Tests\TestCase;
 
 class RegionalIntegrationsTest extends TestCase
@@ -93,40 +92,22 @@ class RegionalIntegrationsTest extends TestCase
         $this->get('/agenda-regional?month=2026-09&state=RS&category=Feriado%20estadual')->assertOk()->assertInertia(fn ($page) => $page->has('holidays', 1)->where('holidays.0.name', 'Data Estadual RS'));
     }
 
-    public function test_zarc_import_filters_south_records_and_preserves_last_valid_data_on_format_change(): void
+    public function test_zarc_is_not_stored_or_synchronized_locally(): void
     {
-        $downloadCount = 0;
-        $catalogCount = 0;
-        Http::fake(function (Request $request) use (&$downloadCount, &$catalogCount) {
-            if (str_contains($request->url(), 'package_show')) {
-                $catalogCount++;
+        Http::fake();
+        app(IntegrationCatalog::class)->ensure();
 
-                return Http::response($this->zarcCatalog($catalogCount === 1 ? '2026-10-10' : '2026-10-11'));
-            }
-            $downloadCount++;
-
-            return Http::response($downloadCount === 1 ? $this->zarcCsv('Soja', 'RS', '4300034', 'Alegrete') : str_repeat('colunas-alteradas;', 10));
-        });
-        app(RegionalIntegrationSync::class)->run('mapa_zarc');
-        $this->assertDatabaseHas('zarc_records', ['culture' => 'Soja', 'state_code' => 'RS', 'municipality' => 'Alegrete', 'season_start' => 2026]);
-        $previousId = (int) DB::table('zarc_records')->value('id');
-
-        try {
-            app(RegionalIntegrationSync::class)->run('mapa_zarc');
-            $this->fail('O CSV alterado deveria ter sido rejeitado.');
-        } catch (RuntimeException $exception) {
-            $this->assertStringContainsString('formato do CSV ZARC mudou', $exception->getMessage());
-        }
-
-        $this->assertDatabaseHas('zarc_records', ['id' => $previousId, 'culture' => 'Soja']);
-        $this->assertDatabaseHas('regional_integrations', ['key' => 'mapa_zarc']);
-        $this->assertNotNull(RegionalIntegration::query()->whereKey('mapa_zarc')->value('last_error'));
+        $this->assertFalse(Schema::hasTable('zarc_records'));
+        $this->assertArrayNotHasKey('mapa_zarc', IntegrationCatalog::definitions());
+        $this->assertDatabaseMissing('regional_integrations', ['key' => 'mapa_zarc']);
+        $this->artisan('campeira:sync mapa_zarc')->assertFailed();
+        Http::assertNothingSent();
     }
 
     public function test_integration_settings_are_admin_only_and_unknown_credentials_are_not_requested(): void
     {
         $admin = $this->userWithRole(UserRole::Admin);
-        $this->actingAs($admin)->get('/admin/integrations')->assertOk()->assertInertia(fn ($page) => $page->component('admin/integrations/index')->has('integrations', 6));
+        $this->actingAs($admin)->get('/admin/integrations')->assertOk()->assertInertia(fn ($page) => $page->component('admin/integrations/index')->has('integrations', 5));
         $this->actingAs($admin)->put('/admin/integrations/ibge_locations', ['enabled' => false])->assertRedirect();
         $this->assertDatabaseHas('regional_integrations', ['key' => 'ibge_locations', 'enabled' => false]);
         $this->assertSame(1, RegionalIntegration::query()->whereKey('embrapa_agroapi')->where('availability', 'credentials_and_paid_tier')->count());
@@ -144,19 +125,5 @@ class RegionalIntegrationsTest extends TestCase
         TerritorialUnit::create(['ibge_code' => 42, 'unit_type' => 'state', 'name' => 'Santa Catarina', 'state_code' => 'SC', 'state_name' => 'Santa Catarina']);
 
         $this->get('/nossa-terra/producao?state=RS&category=Agricultura')->assertOk()->assertInertia(fn ($page) => $page->has('guides.data', 1)->where('guides.data.0.title', 'Guia RS')->where('states', ['RS', 'SC']));
-    }
-
-    /** @return array<string, mixed> */
-    private function zarcCatalog(string $modified = '2026-10-10'): array
-    {
-        return ['success' => true, 'result' => ['resources' => [['id' => 'resource-2026', 'name' => 'Tábua de risco - Safra 2026/2027', 'format' => 'CSV', 'url' => 'https://dados.agricultura.gov.br/2026.csv', 'metadata_modified' => $modified]]]];
-    }
-
-    private function zarcCsv(string $culture, string $state, string $code, string $municipality): string
-    {
-        $headers = ['Nome_cultura', 'SafraIni', 'SafraFin', 'geocodigo', 'UF', 'municipio', 'Portaria', ...array_map(fn ($index) => 'dec'.$index, range(1, 36))];
-        $values = [$culture, '2026', '2027', $code, $state, $municipality, 'Portaria 1', ...array_fill(0, 36, '1')];
-
-        return implode(';', $headers)."\n".implode(';', $values)."\n";
     }
 }

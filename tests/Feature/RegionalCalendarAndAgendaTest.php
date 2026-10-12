@@ -16,17 +16,26 @@ class RegionalCalendarAndAgendaTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_zarc_detail_cards_keep_light_surfaces_dark_text_and_wrap_long_values(): void
+    public function test_zarc_is_consulted_only_on_the_official_mapa_panel(): void
     {
-        $page = file_get_contents(resource_path('js/pages/portal/rural-calendar.tsx'));
+        $calendar = file_get_contents(resource_path('js/pages/portal/rural-calendar.tsx'));
+        $nossaTerra = file_get_contents(resource_path('js/pages/portal/nossa-terra.tsx'));
+        $links = file_get_contents(resource_path('js/lib/official-links.ts'));
 
-        $this->assertIsString($page);
-        $this->assertStringContainsString('bg-[#fbf8f1] text-[#28271f]', $page);
-        $this->assertStringContainsString('bg-white p-3 text-sm', $page);
-        $this->assertStringContainsString('text-[#625f55]', $page);
-        $this->assertStringContainsString('block break-all font-medium text-[#28271f]', $page);
-        $this->assertStringContainsString('Identificadores técnicos e códigos do MAPA', $page);
-        $this->assertStringContainsString('<details className="overflow-hidden rounded-xl', $page);
+        $this->assertIsString($calendar);
+        $this->assertIsString($nossaTerra);
+        $this->assertIsString($links);
+        $this->assertStringNotContainsString('zarcRecords', $calendar);
+        $this->assertStringNotContainsString('name="zarc_', $calendar);
+        $this->assertStringContainsString('<h3 className="mt-2 font-serif text-lg font-bold">{zarcLinkTitle}</h3>', $nossaTerra);
+        $this->assertStringContainsString('href={zarcPanelUrl} target="_blank" rel="noopener noreferrer"', $nossaTerra);
+        $this->assertStringContainsString('site oficial do Ministério da Agricultura e Pecuária', $nossaTerra);
+        $this->assertStringNotContainsString('<iframe', $nossaTerra);
+        $this->assertStringContainsString("'Consultar ZARC — Safras e Plantio'", $links);
+        $this->assertStringContainsString('https://www.gov.br/agricultura/pt-br/assuntos/riscos-seguro/programa-nacional-de-zoneamento-agricola-de-risco-climatico/painel-de-indicacao-de-riscos-1', $links);
+
+        $this->get('/calendario-rural?month=2026-10&zarc_soil=13')->assertOk()->assertInertia(fn ($page) => $page
+            ->component('portal/rural-calendar')->missing('zarcRecords')->missing('seasons')->missing('filters.zarc_soil'));
     }
 
     public function test_home_uses_shared_pagination_with_translated_previous_and_next_labels(): void

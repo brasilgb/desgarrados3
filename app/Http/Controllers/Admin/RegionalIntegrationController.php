@@ -22,7 +22,6 @@ class RegionalIntegrationController extends Controller
             $next = match ($integration->key) {
                 'ibge_locations' => now()->addMonth()->startOfMonth()->setTime(2, 0),
                 'brasilapi_holidays' => now()->addYear()->startOfYear()->setTime(2, 30),
-                'mapa_zarc' => now()->addWeek()->startOfWeek()->setTime(3, 0),
                 default => null,
             };
             if ($next) {

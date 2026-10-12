@@ -4,6 +4,7 @@ import type { PropsWithChildren } from 'react';
 import { useEffect, useRef, useState } from 'react';
 import AppLogoIcon from '@/components/app-logo-icon';
 import PortalSearch from '@/components/portal-search';
+import PortalLocation from '@/components/portal-location';
 import { Toaster } from '@/components/ui/sonner';
 import { cultureLinks, landLinks } from '@/lib/public-navigation';
 
@@ -105,6 +106,7 @@ export default function PublicLayout({ children }: PropsWithChildren) {
                     <Link href="/sobre" aria-current={currentUrl === '/sobre' ? 'page' : undefined} className={`rounded-full px-3 py-2 hover:bg-[#e8dfcf] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#bb623e] ${currentUrl === '/sobre' ? 'bg-[#e8dfcf] text-[#7e402b]' : ''}`}>Sobre o Desgarrados</Link>
                 </nav>
                 <PortalSearch />
+                <PortalLocation />
                 <Link href="/contribua" className="hidden rounded-full bg-[#bb623e] px-4 py-2 text-sm font-semibold text-white sm:inline-flex">Compartilhe uma história</Link>
                 <Link href="/login" aria-label="Acesso da redação" title="Acesso da redação" className="hidden size-10 items-center justify-center rounded-full text-stone-600 transition-colors hover:bg-[#e8dfcf] hover:text-[#31453b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#bb623e] md:inline-flex"><Fence aria-hidden="true" className="size-5 text-[#bb623e]"/></Link>
                 <button ref={mobileMenuButtonRef} type="button" aria-label={mobileMenuOpen ? 'Fechar menu' : 'Abrir menu'} aria-expanded={mobileMenuOpen} aria-controls="mobile-navigation" onClick={() => setMobileMenuOpen(value => !value)} className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-[#cfc4b2] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#bb623e] 2xl:hidden">

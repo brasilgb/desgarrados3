@@ -2,6 +2,18 @@ export type MunicipalityPreference = { code: string; state: string };
 
 const preferenceKey = 'desgarrados:location:municipality';
 const legacyKey = 'desgarrados:rural-calendar:municipality';
+const choiceKey = 'desgarrados:location:choice';
+
+export function getLocationChoice(): 'municipality' | 'declined' | null {
+    try {
+        const value = localStorage.getItem(choiceKey);
+        return value === 'municipality' || value === 'declined' ? value : null;
+    } catch { return null; }
+}
+
+export function saveLocationChoice(choice: 'municipality' | 'declined'): void {
+    try { localStorage.setItem(choiceKey, choice); } catch { /* Keep the portal usable when storage is blocked. */ }
+}
 
 export function getMunicipalityPreference(): MunicipalityPreference | null {
     try {

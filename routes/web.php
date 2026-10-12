@@ -23,6 +23,7 @@ Route::get('/nossa-terra', RegionalHubController::class)->name('nossa-terra');
 Route::get('/busca/sugestoes', SearchSuggestionController::class)->middleware('throttle:60,1')->name('search.suggestions');
 Route::get('/minha-regiao', MyRegionController::class)->name('my-region');
 Route::get('/calendario-rural', [RuralCalendarController::class, 'index'])->name('rural-calendar.index');
+Route::get('/localidades/municipios', [RuralCalendarController::class, 'municipalities'])->name('localities.municipalities');
 Route::post('/calendario-rural/localizacao', [RuralCalendarController::class, 'reverseGeocode'])->middleware('throttle:5,1')->name('rural-calendar.reverse-geocode');
 Route::get('/agenda-regional', [RegionalEventController::class, 'index'])->name('regional-events.index');
 Route::get('/agenda-regional/{event:slug}', [RegionalEventController::class, 'show'])->name('regional-events.show');
