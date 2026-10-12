@@ -1,0 +1,10 @@
+import PortalBreadcrumb from '@/components/portal-breadcrumb';
+import { ExternalLink, MapPinned } from 'lucide-react';
+import PortalSeo from '@/components/portal-seo';
+
+type Guide = { title: string; category: string; region: string | null; summary: string | null; body: string; source_name: string | null; source_url: string | null; reference_date: string | null };
+const date = (value: string) => new Date(`${value}T12:00:00`).toLocaleDateString('pt-BR');
+
+export default function ProductionGuide({ guide }: { guide: Guide }) {
+    return <><PortalSeo title={guide.title} description={guide.summary ?? guide.body} type="article" article={{ section: guide.category }} /><article className="mx-auto max-w-4xl px-5 py-12 md:py-16"><PortalBreadcrumb items={[{ label: 'Portal', href: '/' }, { label: 'Nossa Terra', href: '/nossa-terra' }, { label: 'Produção e informações', href: '/nossa-terra/producao' }, { label: guide.title }]} /><p className="mt-7 text-xs font-bold uppercase tracking-[.2em] text-[#bb623e]">{guide.category}</p><h1 className="mt-2 font-serif text-4xl font-bold text-[#31453b] md:text-5xl">{guide.title}</h1>{guide.summary && <p className="mt-5 text-lg leading-8 text-stone-600">{guide.summary}</p>}{guide.region && <p className="mt-4 flex items-center gap-2 text-sm text-stone-500"><MapPinned className="h-4 w-4"/>{guide.region}</p>}<div className="prose prose-stone mt-9 max-w-none" dangerouslySetInnerHTML={{ __html: guide.body }}/>{guide.source_name && guide.source_url && <section className="mt-12 rounded-2xl bg-[#e8dfcf] p-5"><h2 className="font-serif text-xl font-bold">Fonte e referência</h2><p className="mt-2 text-sm text-stone-700">{guide.source_name}{guide.reference_date && ` · consultada em ${date(guide.reference_date)}`}</p><a href={guide.source_url} target="_blank" rel="noreferrer" className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-[#31453b] underline">Consultar referência <ExternalLink className="h-4 w-4"/></a></section>}</article></>;
+}

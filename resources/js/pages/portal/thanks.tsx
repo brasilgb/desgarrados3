@@ -1,0 +1,3 @@
+import PortalSeo from '@/components/portal-seo';
+import { Link } from '@inertiajs/react';
+export default function Thanks() { return <><PortalSeo title="Obrigado pela lembrança" path="/contribua/obrigado" noindex /><section className="mx-auto max-w-2xl px-5 py-20 text-center"><p className="text-xs font-bold uppercase tracking-[.2em] text-[#bb623e]">Relato recebido</p><h1 className="mt-4 font-serif text-4xl font-bold text-[#31453b]">Obrigado por confiar sua lembrança à gente.</h1><p className="mt-5 leading-7 text-stone-600">Nossa equipe editorial vai avaliar o relato. Ele não será exibido publicamente sem revisão e aprovação.</p><Link href="/" className="mt-8 inline-block rounded-full bg-[#31453b] px-6 py-3 font-semibold text-white">Voltar ao portal</Link></section></>; }

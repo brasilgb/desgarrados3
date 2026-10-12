@@ -1,0 +1,50 @@
+import { Link, router } from '@inertiajs/react';
+import { ArrowLeft, ArrowRight, CalendarDays, MapPin, Search } from 'lucide-react';
+import type { FormEvent } from 'react';
+import { useEffect } from 'react';
+import AdminPagination from '@/components/admin-pagination';
+import { getMunicipalityPreference, saveMunicipalityPreference } from '@/lib/location-preference';
+import PortalBreadcrumb from '@/components/portal-breadcrumb';
+import PortalPageHero from '@/components/portal-page-hero';
+import PortalSeo from '@/components/portal-seo';
+
+type Event = { id: number; name: string; slug: string; description: string | null; category: string; municipality: string; state: string; venue: string | null; starts_on: string; ends_on: string | null; organizer: string | null; source_name: string; source_url: string; verified_at: string; additional_url: string | null; is_featured: boolean };
+type Holiday = { id: number; name: string; date: string; scope: 'national' | 'state'; state_code: string | null; optional: boolean | null; source_url: string };
+type Props = { events: { data: Event[]; links: { url: string | null; label: string; active: boolean }[] }; holidays: Holiday[]; month: string; filters: Record<string, string>; municipalities: { code: string | null; name: string }[]; selectedMunicipalityCode: string; states: string[]; categories: string[] };
+const date = (value: string) => new Date(`${value}T12:00:00`).toLocaleDateString('pt-BR');
+
+export default function RegionalEvents({ events, holidays, month, filters, municipalities, selectedMunicipalityCode, states, categories }: Props) {
+    const [year, monthIndex] = month.split('-').map(Number);
+    const title = new Intl.DateTimeFormat('pt-BR', { month: 'long', year: 'numeric' }).format(new Date(year, monthIndex - 1, 1));
+    useEffect(() => {
+        const query = new URLSearchParams(window.location.search);
+        if (query.has('state') || query.has('municipality') || query.has('municipality_code') || query.get('scope') === 'regional') return;
+        const saved = getMunicipalityPreference();
+        if (saved) router.get('/agenda-regional', { ...filters, ...saved, scope: 'municipality', month }, { preserveScroll: true, preserveState: true, replace: true });
+    // Consult the shared locality preference only on initial entry.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+    function submit(event: FormEvent<HTMLFormElement>) {
+        event.preventDefault();
+        const data = Object.fromEntries([...new FormData(event.currentTarget).entries()].filter(([, value]) => value));
+        const code = String(data.municipality_code ?? '');
+        if (data.scope === 'municipality' && code && data.state) saveMunicipalityPreference({ code, state: String(data.state) });
+        router.get('/agenda-regional', { ...data, month }, { preserveScroll: true });
+    }
+    function changeScope(scope: string) {
+        const params: Record<string, string> = { ...filters, month, scope };
+        if (scope === 'regional') { delete params.state; delete params.municipality; delete params.municipality_code; }
+        if (scope === 'state') { delete params.municipality; delete params.municipality_code; }
+        router.get('/agenda-regional', params, { preserveScroll: true });
+    }
+    function move(delta: number) {
+        const next = new Date(year, monthIndex - 1 + delta, 1);
+        router.get('/agenda-regional', { ...filters, month: `${next.getFullYear()}-${String(next.getMonth() + 1).padStart(2, '0')}` }, { preserveScroll: true });
+    }
+
+    return <><PortalSeo title="Agenda regional" description="Festas, feiras e encontros do Sul publicados com município, período e fonte verificável." /><PortalPageHero image="nossa-terra" icon={CalendarDays} eyebrow="Agenda da Nossa Terra" title="Encontros e festas regionais" intro="Eventos são publicados com município, período, organizador quando informado e uma fonte verificável. A agenda não exibe rascunhos ou confirmações pendentes." /><PortalBreadcrumb items={[{ label: 'Portal', href: '/' }, { label: 'Nossa Terra', href: '/nossa-terra' }, { label: 'Agenda regional' }]} />
+        <main className="mx-auto max-w-7xl space-y-6 px-5 py-9"><form onSubmit={submit} className="grid min-w-0 gap-4 rounded-2xl border bg-[#fbf8f1] p-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 [&>label]:min-w-0 [&_input]:min-h-11 [&_input]:px-3 [&_input]:py-2 [&_select]:min-h-11 [&_select]:px-3 [&_select]:py-2"><label className="portal-label">Abrangência<select name="scope" value={filters.scope ?? 'municipality'} onChange={event => changeScope(event.target.value)} className="portal-field mt-1.5"><option value="municipality">Município</option><option value="state">Estado</option><option value="regional">Regional / todos</option></select></label><label className="portal-label">Município<select name="municipality_code" defaultValue={selectedMunicipalityCode} className="portal-field mt-1.5"><option value="">Todos</option>{municipalities.map(city => <option key={city.code ?? city.name} value={city.code ?? ''}>{city.name}</option>)}</select></label><label className="portal-label">Estado<select name="state" defaultValue={filters.state ?? ''} onChange={event => { const { state: _state, municipality: _municipality, municipality_code: _code, ...rest } = filters; router.get('/agenda-regional', { ...rest, state: event.target.value, scope: event.target.value ? 'state' : 'regional', month }, { preserveScroll: true }); }} className="portal-field mt-1.5"><option value="">Todos</option>{states.map(state => <option key={state}>{state}</option>)}</select></label><label className="portal-label">Categoria<select name="category" defaultValue={filters.category ?? ''} className="portal-field mt-1.5"><option value="">Todas</option>{categories.map(category => <option key={category}>{category}</option>)}</select></label><label className="portal-label">Buscar evento<span className="relative mt-1.5 block"><Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-stone-500" aria-hidden="true"/><input name="q" defaultValue={filters.q} placeholder="Nome do evento" className="portal-field pl-9"/></span></label><div className="flex items-end justify-end gap-3 border-t pt-4 sm:col-span-2 lg:col-span-3 xl:col-span-6"><button className="portal-button">Filtrar</button><Link href={`/agenda-regional?month=${month}&scope=regional`} className="portal-button-secondary">Limpar</Link></div></form>
+            {holidays.length > 0 && <section aria-label="Feriados oficiais" className="overflow-hidden rounded-2xl border border-[#ded5c5] bg-[#fbf8f1]"><header className="border-b p-4"><h2 className="font-serif text-xl font-bold text-[#31453b]">Feriados informados pela BrasilAPI</h2><p className="mt-1 text-xs text-stone-600">Feriados nacionais e estaduais ficam separados de eventos editoriais. A fonte não informa sempre se a data é feriado ou ponto facultativo.</p></header><div className="divide-y">{holidays.map(item => <article key={item.id} className="flex flex-wrap items-center justify-between gap-3 p-4"><div><p className="text-xs font-bold uppercase tracking-wider text-[#bb623e]">{item.scope === 'national' ? 'Nacional' : `Estadual · ${item.state_code}`}{item.optional === true ? ' · Ponto facultativo' : item.optional === false ? ' · Feriado' : ' · classificação legal não informada'}</p><h3 className="mt-1 font-semibold text-[#31453b]">{item.name}</h3></div><div className="flex items-center gap-3 text-sm text-stone-600"><span>{date(item.date)}</span><a href={item.source_url} target="_blank" rel="noreferrer" className="font-semibold underline">Fonte</a></div></article>)}</div></section>}
+            <section className="overflow-hidden rounded-2xl border bg-white"><header className="flex items-center justify-between border-b bg-[#fbf8f1] p-4"><button onClick={() => move(-1)} aria-label="Mês anterior" className="rounded-lg border p-2"><ArrowLeft className="h-4 w-4"/></button><h2 className="font-serif text-2xl font-bold capitalize text-[#31453b]">{title}</h2><button onClick={() => move(1)} aria-label="Próximo mês" className="rounded-lg border p-2"><ArrowRight className="h-4 w-4"/></button></header>{events.data.length ? <div className="divide-y">{events.data.map(item => <article key={item.id} className={`p-5 ${item.is_featured ? 'border-l-4 border-[#bb623e]' : ''}`}><div className="flex flex-wrap items-start justify-between gap-3"><div><p className="text-xs font-bold uppercase tracking-wider text-[#bb623e]">{item.category}{item.is_featured && ' · Em destaque'}</p><h3 className="mt-1 font-serif text-2xl font-bold text-[#31453b]"><Link href={`/agenda-regional/${item.slug}`} className="hover:underline">{item.name}</Link></h3></div><Link href={`/agenda-regional/${item.slug}`} className="text-sm font-semibold underline">Detalhes</Link></div><p className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-sm text-stone-600"><span className="inline-flex items-center gap-1"><CalendarDays className="h-4 w-4"/>{date(item.starts_on)}{item.ends_on && item.ends_on !== item.starts_on ? ` – ${date(item.ends_on)}` : ''}</span><span className="inline-flex items-center gap-1"><MapPin className="h-4 w-4"/>{item.municipality}, {item.state}{item.venue ? ` · ${item.venue}` : ''}</span></p><p className="mt-3 line-clamp-2 text-sm leading-6 text-stone-600">{item.description}</p><p className="mt-3 text-xs text-stone-500">Fonte: {item.source_name} · verificada em {date(item.verified_at)}</p></article>)}</div> : <div className="p-10 text-center"><CalendarDays className="mx-auto h-8 w-8 text-[#bb623e]"/><h3 className="mt-3 font-serif text-xl font-bold">Nenhum evento confirmado neste período</h3><p className="mx-auto mt-2 max-w-lg text-sm leading-6 text-stone-600">Para evitar datas inventadas, a agenda mostra somente eventos publicados e com fonte registrada. Consulte os canais oficiais dos municípios e organizadores.</p></div>}</section><AdminPagination links={events.links} label="Paginação da agenda regional"/></main>
+    </>;
+}
