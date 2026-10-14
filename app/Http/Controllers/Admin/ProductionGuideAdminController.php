@@ -15,7 +15,7 @@ use Inertia\Response;
 
 class ProductionGuideAdminController extends Controller
 {
-    private const CATEGORIES = ['Agricultura', 'Bovinocultura', 'Ovinocultura e lã', 'Viticultura', 'Avicultura', 'Suinocultura', 'Fruticultura', 'Produção leiteira'];
+    public const CATEGORIES = ['Agricultura', 'Bovinocultura', 'Ovinocultura e lã', 'Viticultura', 'Avicultura', 'Suinocultura', 'Fruticultura', 'Produção leiteira', 'Apicultura', 'Pesca', 'Cooperativismo e agroindústria'];
 
     public function index(Request $request): Response
     {

@@ -9,11 +9,11 @@ class Media extends Model
 {
     protected $table = 'media';
 
-    protected $fillable = ['user_id', 'path', 'original_name', 'alt_text', 'credit', 'mime_type', 'size', 'width', 'height', 'source_submission_id', 'is_public', 'private_path'];
+    protected $fillable = ['user_id', 'path', 'original_name', 'alt_text', 'credit', 'mime_type', 'size', 'width', 'height', 'source_submission_id', 'is_public', 'private_path', 'provenance'];
 
     protected function casts(): array
     {
-        return ['is_public' => 'boolean'];
+        return ['is_public' => 'boolean', 'provenance' => 'array'];
     }
 
     /** @return BelongsTo<User, $this> */

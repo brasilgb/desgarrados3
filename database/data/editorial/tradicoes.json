@@ -1,0 +1,457 @@
+{
+ "type": "tradição",
+ "items": [
+  {
+   "slug": "chimarrao-a-roda-de-mate",
+   "title": "Chimarrão: a roda de mate",
+   "excerpt": "Herança dos povos indígenas, a infusão de erva-mate na cuia é o gesto mais cotidiano da cultura do Sul.",
+   "body": "<p>O mate é anterior aos gaúchos. Os povos Guarani e Kaingang já consumiam a erva-mate antes da chegada dos europeus, e os jesuítas das Missões a cultivaram em grandes ervais. O Atlas Socioeconômico do RS lembra que o produto \"era utilizado originalmente pelos nativos\" e faz parte, até hoje, dos hábitos do Cone Sul.</p>\n<p>A palavra \"chimarrão\" vem do espanhol platino <em>cimarrón</em>, que quer dizer xucro, sem mistura: o mate amargo, sem açúcar.</p>\n<h2>A roda</h2>\n<p>Na roda de mate, quem prepara, o cevador, toma o primeiro mate e depois serve um por um, sempre na mesma ordem. Agradecer (\"obrigado\") significa que a pessoa não quer mais. A água não deve ferver.</p>\n<h2>Da erva à cuia</h2>\n<p>O Rio Grande do Sul é o segundo maior produtor de erva-mate do país, com cerca de 39% da folha verde colhida no Brasil (média de 2020 a 2022, segundo o Atlas). Os maiores produtores gaúchos ficam no Vale do Taquari, como Arvorezinha e Ilópolis.</p>",
+   "sources": [
+    {
+     "name": "Atlas Socioeconômico do RS — Erva-mate",
+     "url": "https://atlassocioeconomico.rs.gov.br/erva-mate",
+     "accessed_at": "2026-10-14",
+     "note": "Origem indígena do consumo e produção 2020–2022.",
+     "author": "Secretaria de Planejamento, Governança e Gestão do RS"
+    },
+    {
+     "name": "Wikipédia — Chimarrão",
+     "url": "https://pt.wikipedia.org/wiki/Chimarr%C3%A3o",
+     "accessed_at": "2026-10-14",
+     "note": "Etimologia e preparo.",
+     "license": "CC BY-SA 4.0"
+    }
+   ],
+   "credit": "Texto editorial · Acervo Desgarrados",
+   "categories": [
+    "tradicionalismo",
+    "culinaria",
+    "povos-indigenas"
+   ],
+   "collections": [
+    "vida-campeira"
+   ],
+   "location": {
+    "scope": "regional"
+   },
+   "status": "published",
+   "seo_description": "Herança dos povos indígenas, a infusão de erva-mate na cuia é o gesto mais cotidiano da cultura do Sul.",
+   "image": {
+    "commons": "File:Conjunto de chimarrão I.JPG",
+    "alt": "Chaleira de ferro, cuia e bomba de chimarrão sobre uma mesa",
+    "caption": "Conjunto de chimarrão: chaleira de ferro, cuia e bomba.",
+    "year": "2014"
+   }
+  },
+  {
+   "slug": "pilcha-e-vestido-de-prenda",
+   "title": "Pilcha e vestido de prenda",
+   "excerpt": "Bombacha, lenço, guaiaca e botas para eles; vestido de prenda para elas: a indumentária gaúcha e suas fases.",
+   "body": "<p>Pilcha é o nome da indumentária tradicional gaúcha. No Rio Grande do Sul, a lei a reconhece como traje de honra e de uso preferencial, inclusive em atos oficiais, desde que siga as orientações do Movimento Tradicionalista Gaúcho.</p>\n<p>A roupa masculina mudou ao longo dos séculos: do chiripá, pano preso à cintura, à bombacha, calça larga que se popularizou no século XIX. Completam a pilcha a camisa, o colete, o lenço no pescoço, a guaiaca (cinto largo com bolsos), as botas e o chapéu. No frio, o poncho.</p>\n<h2>O vestido de prenda</h2>\n<p>O vestido de prenda, como é usado hoje, foi criado a partir de 1948, com a fundação do 35 CTG, para representar a figura feminina nas danças e eventos tradicionalistas. Inspirou-se em vestidos do século XIX e em elementos açorianos. Uma pesquisa publicada na revista do Instituto Histórico e Geográfico do RS estuda a evolução dessa moda.</p>\n<h2>O lenço e a política</h2>\n<p>A cor do lenço já foi declaração política: vermelho para os maragatos, federalistas e libertadores; branco para os republicanos castilhistas, os pica-paus de 1893 e os chimangos de 1923.</p>",
+   "sources": [
+    {
+     "name": "Revista do IHGRGS — A moda do vestido de prenda",
+     "url": "https://seer.ufrgs.br/index.php/revistaihgrgs/article/view/90176",
+     "accessed_at": "2026-10-14",
+     "author": "Revista do Instituto Histórico e Geográfico do Rio Grande do Sul"
+    },
+    {
+     "name": "Movimento Tradicionalista Gaúcho (MTG)",
+     "url": "https://www.mtg.org.br",
+     "accessed_at": "2026-10-14",
+     "note": "Entidade que reúne os CTGs e organiza a Semana Farroupilha e a Chama Crioula.",
+     "author": "Movimento Tradicionalista Gaúcho"
+    },
+    {
+     "name": "Wikipédia — Pilcha",
+     "url": "https://pt.wikipedia.org/wiki/Pilcha",
+     "accessed_at": "2026-10-14",
+     "note": "Reconhecimento legal e fases da indumentária.",
+     "license": "CC BY-SA 4.0"
+    }
+   ],
+   "credit": "Texto editorial · Acervo Desgarrados",
+   "categories": [
+    "tradicionalismo"
+   ],
+   "collections": [
+    "vida-campeira"
+   ],
+   "location": {
+    "scope": "state",
+    "state": "RS"
+   },
+   "status": "published",
+   "seo_description": "Bombacha, lenço, guaiaca e botas para eles; vestido de prenda para elas: a indumentária gaúcha e suas fases.",
+   "image": {
+    "commons": "File:Vestimenta del gaucho.jpg",
+    "alt": "Conjunto de pilcha gaúcha exposto, com chapéu, lenço, bombacha e botas",
+    "caption": "Peças da indumentária gaúcha.",
+    "year": "2023"
+   }
+  },
+  {
+   "slug": "35-ctg-e-a-chama-crioula",
+   "title": "O 35 CTG e a primeira Chama Crioula",
+   "excerpt": "Em 1947, oito estudantes acenderam uma chama na Pira da Pátria; em 1948 fundaram o primeiro Centro de Tradições Gaúchas.",
+   "body": "<p>Perto da meia-noite de 7 de setembro de 1947, os jovens Paixão Côrtes, Fernando Machado Vieira e Cyro Dutra Ferreira, a cavalo, retiraram uma centelha da Pira da Pátria, em Porto Alegre. Era a primeira Chama Crioula. O grupo organizou a primeira Ronda Crioula, que daria origem à Semana Farroupilha.</p>\n<p>Em 24 de abril de 1948, o grupo, que incluía Barbosa Lessa, Glaucus Saraiva e outros estudantes, fundou o 35 Centro de Tradições Gaúchas, o 35 CTG. O nome lembra o ano de 1835. Foi o primeiro de mais de mil CTGs espalhados hoje pelo Brasil e pelo exterior.</p>\n<h2>O movimento</h2>\n<p>Do 35 CTG nasceu o tradicionalismo organizado, com o Movimento Tradicionalista Gaúcho, que reúne as entidades e define normas para danças, indumentária e eventos. Paixão Côrtes e Barbosa Lessa fizeram pesquisas de campo pelo interior para registrar danças e músicas antigas.</p>\n<p>É bom lembrar: o tradicionalismo é uma leitura da cultura gaúcha construída no século XX. Ele convive com outras tradições do estado, como as de origem indígena, africana, açoriana, alemã e italiana.</p>",
+   "sources": [
+    {
+     "name": "Movimento Tradicionalista Gaúcho (MTG)",
+     "url": "https://www.mtg.org.br",
+     "accessed_at": "2026-10-14",
+     "note": "Entidade que reúne os CTGs e organiza a Semana Farroupilha e a Chama Crioula.",
+     "author": "Movimento Tradicionalista Gaúcho"
+    },
+    {
+     "name": "Wikipédia — 35 CTG",
+     "url": "https://pt.wikipedia.org/wiki/35_CTG",
+     "accessed_at": "2026-10-14",
+     "note": "Fundação em 24 de abril de 1948 e fundadores.",
+     "license": "CC BY-SA 4.0"
+    },
+    {
+     "name": "Wikipédia — Chama Crioula",
+     "url": "https://pt.wikipedia.org/wiki/Chama_Crioula",
+     "accessed_at": "2026-10-14",
+     "note": "Data e protagonistas da primeira chama.",
+     "license": "CC BY-SA 4.0"
+    }
+   ],
+   "credit": "Texto editorial · Acervo Desgarrados",
+   "categories": [
+    "tradicionalismo"
+   ],
+   "collections": [],
+   "location": {
+    "scope": "municipality",
+    "state": "RS",
+    "municipality": "Porto Alegre"
+   },
+   "status": "published",
+   "seo_description": "Em 1947, oito estudantes acenderam uma chama na Pira da Pátria; em 1948 fundaram o primeiro Centro de Tradições Gaúchas."
+  },
+  {
+   "slug": "festa-da-uva-de-caxias-do-sul",
+   "title": "A Festa da Uva de Caxias do Sul",
+   "excerpt": "Criada em 1931 para celebrar a colheita e a produção dos colonos, a festa chegou à 95ª edição em 2026.",
+   "body": "<p>A primeira Festa da Uva aconteceu em Caxias do Sul em 1931. Era uma exposição da produção dos colonos italianos e de seus descendentes: uvas, vinhos e produtos da indústria nascente. Logo ganhou desfile de carros alegóricos e a eleição de uma rainha.</p>\n<p>A festa marcou a identidade da Serra gaúcha e virou vitrine da imigração italiana. Em 2026, a Festa Nacional da Uva chegou à sua 95ª edição, entre fevereiro e março, época da vindima.</p>\n<p>Estudos da Universidade de Caxias do Sul acompanham a história da festa e o modo como ela representou, em cada época, a figura do imigrante.</p>",
+   "sources": [
+    {
+     "name": "Festa Nacional da Uva",
+     "url": "https://www.festadauva.com.br",
+     "accessed_at": "2026-10-14",
+     "note": "Site oficial: 95 anos em 2026.",
+     "author": "Comissão Comunitária da Festa da Uva"
+    },
+    {
+     "name": "UCS — Festa da Uva de Caxias do Sul (documento)",
+     "url": "https://www.ucs.br/site/midia/arquivos/festa_da_uva_caxias.pdf",
+     "accessed_at": "2026-10-14",
+     "author": "Universidade de Caxias do Sul"
+    },
+    {
+     "name": "Wikipédia — Festa da Uva",
+     "url": "https://pt.wikipedia.org/wiki/Festa_da_Uva",
+     "accessed_at": "2026-10-14",
+     "note": "Consulta de orientação inicial; verificar nas demais fontes.",
+     "license": "CC BY-SA 4.0"
+    }
+   ],
+   "credit": "Texto editorial · Acervo Desgarrados",
+   "categories": [
+    "festas-populares",
+    "imigracao"
+   ],
+   "collections": [
+    "imigracao-italiana",
+    "serra-gaucha"
+   ],
+   "location": {
+    "scope": "municipality",
+    "state": "RS",
+    "municipality": "Caxias do Sul"
+   },
+   "status": "published",
+   "seo_description": "Criada em 1931 para celebrar a colheita e a produção dos colonos, a festa chegou à 95ª edição em 2026.",
+   "image": {
+    "commons": "File:Cortejo-festa-da-Uva-1950.jpg",
+    "alt": "Carro alegórico decorado com uvas desfilando numa rua de Caxias do Sul em 1950",
+    "caption": "Cortejo da Festa da Uva de 1950.",
+    "year": "1950",
+    "location": "Caxias do Sul, RS"
+   }
+  },
+  {
+   "slug": "oktoberfest-de-santa-cruz-do-sul",
+   "title": "A Oktoberfest de Santa Cruz do Sul",
+   "excerpt": "Realizada desde 1984, a maior festa germânica do estado celebra a herança alemã do Vale do Rio Pardo.",
+   "body": "<p>Santa Cruz do Sul foi colonizada a partir de 1849 por imigrantes alemães. A Oktoberfest local começou em 1984, sucedendo a antiga Festa Nacional do Fumo, que já tinha a cultura germânica como tema.</p>\n<p>A festa tem desfiles, bandas, danças folclóricas, gastronomia e o tradicional carro da cerveja. Foi declarada patrimônio cultural do estado em 2006.</p>\n<p>Uma pesquisa da Universidade de Santa Cruz do Sul (Unisc) analisa como a Oktoberfest ajudou a construir o discurso de identidade germânica da cidade.</p>",
+   "sources": [
+    {
+     "name": "Repositório Unisc — A contribuição da Oktoberfest para o discurso identitário germânico de Santa Cruz do Sul",
+     "url": "https://repositorio.unisc.br/jspui/handle/11624/665",
+     "accessed_at": "2026-10-14",
+     "author": "Universidade de Santa Cruz do Sul"
+    },
+    {
+     "name": "Wikipédia — Oktoberfest de Santa Cruz do Sul",
+     "url": "https://pt.wikipedia.org/wiki/Oktoberfest_de_Santa_Cruz_do_Sul",
+     "accessed_at": "2026-10-14",
+     "note": "Início em 1984 e reconhecimento em 2006.",
+     "license": "CC BY-SA 4.0"
+    }
+   ],
+   "credit": "Texto editorial · Acervo Desgarrados",
+   "categories": [
+    "festas-populares",
+    "imigracao"
+   ],
+   "collections": [
+    "imigracao-alema"
+   ],
+   "location": {
+    "scope": "municipality",
+    "state": "RS",
+    "municipality": "Santa Cruz do Sul"
+   },
+   "status": "published",
+   "seo_description": "Realizada desde 1984, a maior festa germânica do estado celebra a herança alemã do Vale do Rio Pardo.",
+   "image": {
+    "commons": "File:Bierwagen Oktoberfest Santa Cruz do Sul, 2013.jpeg",
+    "alt": "Carro alegórico da cerveja no desfile da Oktoberfest de Santa Cruz do Sul",
+    "caption": "O carro da cerveja na Oktoberfest de Santa Cruz do Sul, 2013.",
+    "year": "2013",
+    "location": "Santa Cruz do Sul, RS"
+   }
+  },
+  {
+   "slug": "kerb-a-festa-da-igreja-nas-colonias-alemas",
+   "title": "Kerb, a festa da igreja nas colônias alemãs",
+   "excerpt": "Missa ou culto, almoço, cucas e baile: o kerb é a festa comunitária que os imigrantes alemães trouxeram ao Sul.",
+   "body": "<p>O kerb é uma festa de origem alemã, do termo <em>Kirchweih</em>, a consagração da igreja. Os imigrantes trouxeram o costume no século XIX. Nas comunidades católicas, acontece no dia do padroeiro; nas luteranas, no aniversário do templo.</p>\n<p>A festa mistura religião e convivência: culto ou missa, almoço comunitário, cucas, carnes, chucrute e bailes que podiam durar dias. O Centro Nacional de Folclore e Cultura Popular registra o kerb em seu tesauro de manifestações culturais, e pesquisadores da UFPel documentam kerbs tradicionais, como o de São Miguel.</p>",
+   "sources": [
+    {
+     "name": "CNFCP — Tesauro de Folclore e Cultura Popular: Kerb",
+     "url": "https://antigo.cnfcp.gov.br/tesauro/00001888.htm",
+     "accessed_at": "2026-10-14",
+     "author": "Centro Nacional de Folclore e Cultura Popular"
+    },
+    {
+     "name": "UFPel — Uma breve história do Kerb de São Miguel",
+     "url": "https://wp.ufpel.edu.br/empauta/uma-breve-historia-do-kerb-de-sao-miguel/",
+     "accessed_at": "2026-10-14",
+     "author": "Universidade Federal de Pelotas"
+    },
+    {
+     "name": "Wikipédia — Kerb",
+     "url": "https://pt.wikipedia.org/wiki/Kerb",
+     "accessed_at": "2026-10-14",
+     "note": "Consulta de orientação inicial; verificar nas demais fontes.",
+     "license": "CC BY-SA 4.0"
+    }
+   ],
+   "credit": "Texto editorial · Acervo Desgarrados",
+   "categories": [
+    "festas-populares",
+    "imigracao"
+   ],
+   "collections": [
+    "imigracao-alema"
+   ],
+   "location": {
+    "scope": "state",
+    "state": "RS"
+   },
+   "status": "published",
+   "seo_description": "Missa ou culto, almoço, cucas e baile: o kerb é a festa comunitária que os imigrantes alemães trouxeram ao Sul."
+  },
+  {
+   "slug": "talian-a-lingua-das-colonias-italianas",
+   "title": "Talian, a língua das colônias italianas",
+   "excerpt": "Mistura de dialetos do norte da Itália com o português, o talian foi reconhecido pelo Iphan como referência cultural brasileira.",
+   "body": "<p>Os imigrantes que chegaram à Serra a partir de 1875 falavam dialetos diferentes, sobretudo do Vêneto, da Lombardia e do Trentino. Nas colônias, essas falas se misturaram entre si e com o português e deram origem ao talian, também chamado vêneto brasileiro.</p>\n<p>No começo do século XX o talian já tinha literatura própria. A partir dos anos 1930, a campanha de nacionalização do governo Vargas proibiu o uso de línguas estrangeiras, e muitas famílias deixaram de ensiná-lo aos filhos.</p>\n<h2>Reconhecimento</h2>\n<p>Em 2014, o Iphan incluiu o talian no Inventário Nacional da Diversidade Linguística como Referência Cultural Brasileira. O Rio Grande do Sul também reconheceu o talian como patrimônio do estado.</p>\n<h2>O filó</h2>\n<p>O talian vive nas conversas de família, nas missas, nas rádios do interior e no filó, os encontros noturnos entre vizinhos para jogar cartas, rezar, cantar e comer pinhão, polenta e salame.</p>",
+   "sources": [
+    {
+     "name": "Iphan — Certidão do Talian como Referência Cultural Brasileira",
+     "url": "http://portal.iphan.gov.br/uploads/ckfinder/arquivos/Certidao_%20Talian.pdf",
+     "accessed_at": "2026-10-14",
+     "note": "Inclusão no Inventário Nacional da Diversidade Linguística.",
+     "author": "Instituto do Patrimônio Histórico e Artístico Nacional"
+    },
+    {
+     "name": "Wikipédia — Talian",
+     "url": "https://pt.wikipedia.org/wiki/Talian",
+     "accessed_at": "2026-10-14",
+     "note": "Origem, repressão nos anos 1930 e recuperação.",
+     "license": "CC BY-SA 4.0"
+    }
+   ],
+   "credit": "Texto editorial · Acervo Desgarrados",
+   "categories": [
+    "imigracao",
+    "patrimonio-e-memoria"
+   ],
+   "collections": [
+    "imigracao-italiana",
+    "serra-gaucha"
+   ],
+   "location": {
+    "scope": "state",
+    "state": "RS"
+   },
+   "status": "published",
+   "seo_description": "Mistura de dialetos do norte da Itália com o português, o talian foi reconhecido pelo Iphan como referência cultural brasileira."
+  },
+  {
+   "slug": "a-tava-lugar-de-referencia-guarani",
+   "title": "A Tava, lugar de referência para o povo Guarani",
+   "excerpt": "Para os Guarani, as ruínas de São Miguel não são só patrimônio colonial: são a Tava, lugar sagrado registrado pelo Iphan em 2014.",
+   "body": "<p>O que os visitantes chamam de ruínas de São Miguel Arcanjo, os Guarani Mbyá chamam de Tava, \"a casa de pedra\". Para eles, o lugar é parte de sua história e de sua espiritualidade, ligado à memória dos antepassados que ali viveram.</p>\n<p>Em 2014, o Iphan inscreveu a Tava no Livro de Registro dos Lugares como Lugar de Referência para o Povo Guarani. Foi um reconhecimento de que o mesmo sítio, tombado em 1938 e Patrimônio Mundial desde 1983, tem outros sentidos além do colonial.</p>\n<h2>Os Guarani hoje</h2>\n<p>Famílias Guarani vivem na região das Missões e em outras partes do estado. O Censo de 2022 contou mais de 36 mil pessoas indígenas no Rio Grande do Sul, de povos como Kaingang, Guarani e Charrua, segundo o Atlas Socioeconômico do RS.</p>",
+   "sources": [
+    {
+     "name": "Iphan — Superintendência no Rio Grande do Sul",
+     "url": "https://www.gov.br/iphan/pt-br/superintendencias/rio-grande-do-sul",
+     "accessed_at": "2026-10-14",
+     "note": "Registro da Tava no Livro de Registro dos Lugares (2014).",
+     "author": "Instituto do Patrimônio Histórico e Artístico Nacional"
+    },
+    {
+     "name": "Iphan — Patrimônio arqueológico no Rio Grande do Sul",
+     "url": "https://www.gov.br/iphan/pt-br/superintendencias/rio-grande-do-sul/patrimonio-arqueologico",
+     "accessed_at": "2026-10-14",
+     "author": "Instituto do Patrimônio Histórico e Artístico Nacional"
+    },
+    {
+     "name": "Atlas Socioeconômico do RS — Terras indígenas",
+     "url": "https://atlassocioeconomico.rs.gov.br/areas-indigenas",
+     "accessed_at": "2026-10-14",
+     "note": "População indígena no RS (Censo 2022) e terras indígenas.",
+     "author": "Secretaria de Planejamento, Governança e Gestão do RS"
+    }
+   ],
+   "credit": "Texto editorial · Acervo Desgarrados",
+   "categories": [
+    "povos-indigenas",
+    "patrimonio-e-memoria"
+   ],
+   "collections": [
+    "missoes"
+   ],
+   "location": {
+    "scope": "municipality",
+    "state": "RS",
+    "municipality": "São Miguel das Missões"
+   },
+   "status": "published",
+   "seo_description": "Para os Guarani, as ruínas de São Miguel não são só patrimônio colonial: são a Tava, lugar sagrado registrado pelo Iphan em 2014.",
+   "image": {
+    "commons": "File:São Miguel das Missões - Igreja.jpg",
+    "alt": "Fachada em ruínas da igreja de São Miguel, com arcos de pedra",
+    "caption": "Ruínas da igreja de São Miguel Arcanjo, a Tava dos Guarani.",
+    "year": "2006",
+    "location": "São Miguel das Missões, RS"
+   },
+   "review_note": "Conferir com lideranças ou pesquisadores Guarani a tradução e o uso do termo \"Tava\" antes de ampliar o texto."
+  },
+  {
+   "slug": "comunidades-quilombolas-do-rio-grande-do-sul",
+   "title": "Comunidades quilombolas do Rio Grande do Sul",
+   "excerpt": "O Censo 2022 contou 203 localidades quilombolas no estado, com mais de 17 mil pessoas, de Porto Alegre ao interior.",
+   "body": "<p>Quilombo, na definição clássica, era o lugar de refúgio de pessoas escravizadas que fugiam. A Constituição de 1988 ampliou o sentido: comunidades remanescentes de quilombos são grupos que mantêm vínculo histórico e cultural com essa ancestralidade e têm direito à propriedade de suas terras.</p>\n<p>Segundo o Censo 2022, citado pelo Atlas Socioeconômico do RS, o estado tem 203 localidades quilombolas e 17.552 pessoas quilombolas. Os municípios com maiores populações são Porto Alegre, Formigueiro e Canguçu.</p>\n<h2>Como uma comunidade é reconhecida</h2>\n<p>O processo começa com a certidão de autorreconhecimento da Fundação Cultural Palmares e segue com o relatório técnico do Incra, a publicação dos limites e, por fim, a titulação coletiva da terra em nome da associação da comunidade.</p>",
+   "sources": [
+    {
+     "name": "Atlas Socioeconômico do RS — Comunidades quilombolas",
+     "url": "https://atlassocioeconomico.rs.gov.br/comunidades-quilombolas",
+     "accessed_at": "2026-10-14",
+     "note": "Dados do Censo 2022 e etapas da titulação.",
+     "author": "Secretaria de Planejamento, Governança e Gestão do RS"
+    }
+   ],
+   "credit": "Texto editorial · Acervo Desgarrados",
+   "categories": [
+    "cultura-afro-gaucha"
+   ],
+   "collections": [
+    "territorios-negros"
+   ],
+   "location": {
+    "scope": "state",
+    "state": "RS"
+   },
+   "status": "published",
+   "seo_description": "O Censo 2022 contou 203 localidades quilombolas no estado, com mais de 17 mil pessoas, de Porto Alegre ao interior."
+  },
+  {
+   "slug": "churrasco-e-fogo-de-chao",
+   "title": "Churrasco e fogo de chão",
+   "excerpt": "Carne no espeto, sal grosso e brasa: o churrasco nasceu da lida com o gado nas estâncias e virou símbolo do Sul.",
+   "body": "<p>Nas estâncias dos séculos XVIII e XIX, a carne era abundante e o modo mais simples de prepará-la era assá-la no espeto, junto ao fogo aceso no chão do galpão ou a céu aberto. Daí nasceu o churrasco, com pouca coisa além de sal grosso.</p>\n<p>O fogo de chão, com espetos fincados na terra ao redor das brasas, ainda é praticado em festas e rodeios. A tradição convive hoje com a churrasqueira de alvenaria, presente em quase toda casa gaúcha.</p>",
+   "sources": [
+    {
+     "name": "Wikipédia — Churrasco",
+     "url": "https://pt.wikipedia.org/wiki/Churrasco",
+     "accessed_at": "2026-10-14",
+     "note": "Consulta de orientação inicial; verificar nas demais fontes.",
+     "license": "CC BY-SA 4.0"
+    }
+   ],
+   "credit": "Texto editorial · Acervo Desgarrados",
+   "categories": [
+    "culinaria",
+    "vida-campeira"
+   ],
+   "collections": [
+    "vida-campeira"
+   ],
+   "location": {
+    "scope": "regional"
+   },
+   "status": "draft",
+   "seo_description": "Carne no espeto, sal grosso e brasa: o churrasco nasceu da lida com o gado nas estâncias e virou símbolo do Sul.",
+   "image": {
+    "commons": "File:Fogo de chão.jpg",
+    "alt": "Espetos de carne assando em fogo de chão, ao redor das brasas",
+    "caption": "Churrasco de fogo de chão.",
+    "year": "2022"
+   },
+   "review_note": "Rascunho: incluir fonte histórica ou etnográfica sobre a origem do churrasco."
+  },
+  {
+   "slug": "cavalo-crioulo",
+   "title": "O cavalo crioulo",
+   "excerpt": "Resistente ao frio, à seca e à falta de pasto, o crioulo é o cavalo do Pampa.",
+   "body": "<p>O cavalo crioulo descende dos cavalos de sangue andaluz e berbere trazidos pelos espanhóis ao Prata no século XVI. Muitos escaparam e se multiplicaram soltos nos campos durante séculos. As condições duras do Pampa selecionaram animais pequenos, fortes e muito resistentes.</p>\n<p>No Rio Grande do Sul, o crioulo é o cavalo da lida campeira e das provas de rodeio. A raça tem associação de criadores e provas próprias, como o Freio de Ouro.</p>",
+   "sources": [
+    {
+     "name": "Wikipédia — Cavalo Crioulo",
+     "url": "https://pt.wikipedia.org/wiki/Cavalo_Crioulo",
+     "accessed_at": "2026-10-14",
+     "note": "Origem e características.",
+     "license": "CC BY-SA 4.0"
+    }
+   ],
+   "credit": "Texto editorial · Acervo Desgarrados",
+   "categories": [
+    "vida-campeira",
+    "tradicionalismo"
+   ],
+   "collections": [
+    "vida-campeira"
+   ],
+   "location": {
+    "scope": "regional"
+   },
+   "status": "draft",
+   "seo_description": "Resistente ao frio, à seca e à falta de pasto, o crioulo é o cavalo do Pampa.",
+   "image": {
+    "commons": "File:Cavalo crioulo em monte alegre dos campos.JPG",
+    "alt": "Cavalo crioulo de pelagem escura num campo dos Campos de Cima da Serra",
+    "caption": "Cavalo crioulo em Monte Alegre dos Campos.",
+    "year": "2013",
+    "location": "Monte Alegre dos Campos, RS"
+   },
+   "review_note": "Rascunho: incluir fonte da Associação Brasileira de Criadores de Cavalos Crioulos ou da Embrapa."
+  }
+ ]
+}

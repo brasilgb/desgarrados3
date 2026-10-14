@@ -1,0 +1,230 @@
+{
+ "categories": [
+  {
+   "name": "Lendas e assombrações",
+   "slug": "lendas-e-assombracoes",
+   "description": "Lendas, crenças e narrativas da tradição oral do Sul."
+  },
+  {
+   "name": "Vida campeira",
+   "slug": "vida-campeira",
+   "description": "A lida, os costumes e a paisagem das estâncias e do campo."
+  },
+  {
+   "name": "Humor campeiro",
+   "slug": "humor-campeiro",
+   "description": "Causos engraçados, lorotas e humor de situação."
+  },
+  {
+   "name": "Imigração",
+   "slug": "imigracao",
+   "description": "Alemães, italianos, açorianos e outras chegadas que formaram o estado."
+  },
+  {
+   "name": "Cultura afro-gaúcha",
+   "slug": "cultura-afro-gaucha",
+   "description": "Memória, territórios e expressões culturais negras no Sul."
+  },
+  {
+   "name": "Povos indígenas",
+   "slug": "povos-indigenas",
+   "description": "Guarani, Kaingang, Charrua e a presença indígena na história e no presente."
+  },
+  {
+   "name": "Herança açoriana",
+   "slug": "heranca-acoriana",
+   "description": "Vilas, festas e danças trazidas pelos casais açorianos."
+  },
+  {
+   "name": "Conflitos e revoluções",
+   "slug": "conflitos-e-revolucoes",
+   "description": "Guerras, revoltas e disputas políticas do Rio Grande do Sul."
+  },
+  {
+   "name": "Cidades e memória urbana",
+   "slug": "cidades-e-memoria-urbana",
+   "description": "A formação e a vida das cidades gaúchas."
+  },
+  {
+   "name": "Fronteira",
+   "slug": "fronteira",
+   "description": "A vida dos dois lados da linha com o Uruguai e a Argentina."
+  },
+  {
+   "name": "Patrimônio e memória",
+   "slug": "patrimonio-e-memoria",
+   "description": "Bens tombados, registros e lugares de memória."
+  },
+  {
+   "name": "Ferrovias e transportes",
+   "slug": "ferrovias",
+   "description": "Trens, estações, caminhos e portos."
+  },
+  {
+   "name": "Fotografia histórica",
+   "slug": "fotografia",
+   "description": "Fotografias antigas em domínio público, com autoria e data."
+  },
+  {
+   "name": "Produção rural",
+   "slug": "producao-rural",
+   "description": "Pecuária, lavouras e agroindústria."
+  },
+  {
+   "name": "Regionalismo",
+   "slug": "literatura-regionalista",
+   "description": "Literatura que tem o Rio Grande do Sul e o gaúcho como tema."
+  },
+  {
+   "name": "Literatura urbana",
+   "slug": "literatura-urbana",
+   "description": "Romances, contos e teatro das cidades."
+  },
+  {
+   "name": "Literatura de imigração",
+   "slug": "literatura-de-imigracao",
+   "description": "Obras sobre a experiência dos imigrantes e seus descendentes."
+  },
+  {
+   "name": "Poesia popular",
+   "slug": "poesia-popular",
+   "description": "Quadras, trovas e versos de autoria desconhecida."
+  },
+  {
+   "name": "Poesia campeira",
+   "slug": "poesia-campeira",
+   "description": "Poesia de temática gauchesca, payada e versos de galpão."
+  },
+  {
+   "name": "Poesia romântica",
+   "slug": "poesia-romantica",
+   "description": "Poetas do romantismo no Sul."
+  },
+  {
+   "name": "Poesia simbolista",
+   "slug": "poesia-simbolista",
+   "description": "O simbolismo no Rio Grande do Sul e em Santa Catarina."
+  },
+  {
+   "name": "Poesia moderna",
+   "slug": "poesia-moderna",
+   "description": "Poetas do século XX."
+  },
+  {
+   "name": "Ritmos e danças",
+   "slug": "ritmos-e-dancas",
+   "description": "Milonga, chamamé, chimarrita, bugio, vaneira e outras formas."
+  },
+  {
+   "name": "Compositores e intérpretes",
+   "slug": "compositores-e-interpretes",
+   "description": "Quem fez e quem cantou a música do Sul."
+  },
+  {
+   "name": "Tradicionalismo",
+   "slug": "tradicionalismo",
+   "description": "CTGs, pilcha, rodeios e o movimento tradicionalista."
+  },
+  {
+   "name": "Culinária",
+   "slug": "culinaria",
+   "description": "Comida e bebida do dia a dia e das festas."
+  },
+  {
+   "name": "Festas populares",
+   "slug": "festas-populares",
+   "description": "Festas religiosas, de colheita e de imigração."
+  }
+ ],
+ "collections": [
+  {
+   "name": "Obra de Simões Lopes Neto",
+   "slug": "obra-de-simoes-lopes-neto",
+   "description": "Contos, lendas, casos e versos do escritor pelotense, em domínio público e na íntegra.",
+   "is_featured": true
+  },
+  {
+   "name": "Porto Alegre antiga",
+   "slug": "porto-alegre-antiga",
+   "description": "A capital gaúcha entre o século XVIII e meados do século XX, em textos e fotografias históricas.",
+   "is_featured": true
+  },
+  {
+   "name": "Imigração italiana",
+   "slug": "imigracao-italiana",
+   "description": "A colonização italiana na Serra e suas heranças.",
+   "is_featured": true
+  },
+  {
+   "name": "Imigração alemã",
+   "slug": "imigracao-alema",
+   "description": "Do Vale do Sinos ao Vale do Rio Pardo: a imigração alemã e seus descendentes.",
+   "is_featured": false
+  },
+  {
+   "name": "Missões",
+   "slug": "missoes",
+   "description": "Os Sete Povos, o povo Guarani e a cultura missioneira.",
+   "is_featured": true
+  },
+  {
+   "name": "Territórios negros",
+   "slug": "territorios-negros",
+   "description": "Charqueadas, quilombos, bairros e expressões da cultura afro-gaúcha.",
+   "is_featured": true
+  },
+  {
+   "name": "Vida campeira",
+   "slug": "vida-campeira",
+   "description": "Estâncias, tropeiros, mate e cavalos.",
+   "is_featured": false
+  },
+  {
+   "name": "Serra gaúcha",
+   "slug": "serra-gaucha",
+   "description": "Colônias, parreirais, ferrovia e festas da Serra.",
+   "is_featured": false
+  },
+  {
+   "name": "Fronteira e Campanha",
+   "slug": "fronteira-e-campanha",
+   "description": "Pampa, fronteira e as guerras do Sul.",
+   "is_featured": false
+  },
+  {
+   "name": "Litoral e herança açoriana",
+   "slug": "litoral-e-heranca-acoriana",
+   "description": "Rio Grande, vilas açorianas e o litoral.",
+   "is_featured": false
+  },
+  {
+   "name": "Ferrovias do Rio Grande do Sul",
+   "slug": "ferrovias-do-rio-grande-do-sul",
+   "description": "Trilhos, estações e o tempo dos trens.",
+   "is_featured": false
+  },
+  {
+   "name": "Enchentes históricas",
+   "slug": "enchentes-historicas",
+   "description": "As grandes cheias e a memória das águas.",
+   "is_featured": false
+  }
+ ],
+ "series": [
+  {
+   "title": "Lendas do Sul",
+   "slug": "lendas-do-sul",
+   "description": "As lendas reunidas por João Simões Lopes Neto em 1913, na íntegra."
+  },
+  {
+   "title": "Contos gauchescos",
+   "slug": "contos-gauchescos",
+   "description": "Os contos de Blau Nunes, de João Simões Lopes Neto (1912), na íntegra."
+  },
+  {
+   "title": "Casos do Romualdo",
+   "slug": "casos-do-romualdo",
+   "description": "As lorotas do Romualdo, por João Simões Lopes Neto, na íntegra."
+  }
+ ]
+}
