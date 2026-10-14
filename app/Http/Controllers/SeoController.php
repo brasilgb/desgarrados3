@@ -23,6 +23,7 @@ class SeoController extends Controller
         $urls = collect(self::SECTIONS)->map(fn (string $path) => ['loc' => $path]);
         $urls = $urls->merge(collect(array_keys(PortalController::NOTEBOOKS))->map(fn (string $slug) => ['loc' => "/cadernos/{$slug}"]));
         $urls = $urls->merge($this->institutionalPages());
+        $urls = $urls->merge(array_map(fn (string $id) => ['loc' => RegionalHubController::toolPath($id)], RegionalHubController::publicTools()['enabled']));
 
         $urls = $urls->merge(Publication::query()->publiclyVisible()->orderByDesc('published_at')->get(['slug', 'updated_at'])
             ->map(fn (Publication $publication) => ['loc' => "/publicacao/{$publication->slug}", 'lastmod' => $publication->updated_at]));

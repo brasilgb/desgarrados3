@@ -121,7 +121,7 @@ class SeoIndexingTest extends TestCase
         auth()->logout();
         $this->getJson('/busca/sugestoes?q=causo')->assertHeader('X-Robots-Tag', 'noindex');
 
-        foreach (['/?q=causo', '/calendario-rural?state=RS', '/agenda-regional?scope=state&state=RS', '/minha-regiao?state=RS&municipality_code=4314902', '/cadernos/historias?assunto=campo', '/nossa-terra?ferramenta=arroba'] as $path) {
+        foreach (['/?q=causo', '/calendario-rural?state=RS', '/agenda-regional?scope=state&state=RS', '/minha-regiao?state=RS&municipality_code=4314902', '/cadernos/historias?assunto=campo'] as $path) {
             $this->get($path)->assertHeader('X-Robots-Tag', 'noindex, follow');
         }
 

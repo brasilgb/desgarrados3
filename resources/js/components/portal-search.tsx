@@ -4,7 +4,7 @@ import { ArrowRight, BookOpen, CalendarDays, Calculator, Compass, CornerDownLeft
 import type { LucideIcon } from 'lucide-react';
 import type { KeyboardEvent as ReactKeyboardEvent } from 'react';
 import { useEffect, useId, useMemo, useRef, useState } from 'react';
-import { toolCatalog, type ToolId } from '@/lib/regional-tools-catalog';
+import { toolCatalog, toolPath, type ToolId } from '@/lib/regional-tools-catalog';
 import { cultureLinks, landLinks } from '@/lib/public-navigation';
 
 type Item = { title: string; section: string; description: string | null; url: string };
@@ -154,7 +154,7 @@ function SearchPanel({ onNavigate }: { onNavigate: () => void }) {
             .map(id => ({ ...toolCatalog[id], title: tools.titles[id] || toolCatalog[id].title }))
             .filter(tool => normalize(`${tool.title} ${tool.category} ${tool.description}`).includes(needle))
             .slice(0, 5)
-            .map(tool => ({ title: tool.title, section: `Central Campeira · ${tool.category}`, description: tool.description, url: `/nossa-terra?ferramenta=${tool.id}` }));
+            .map(tool => ({ title: tool.title, section: `Central Campeira · ${tool.category}`, description: tool.description, url: toolPath(tool.id) }));
         const fresh = result && normalize(result.query) === normalize(debounced) && debounced === term ? result.groups : [];
 
         return [

@@ -20,6 +20,7 @@ Route::get('/', [PortalController::class, 'index'])->name('home');
 Route::get('/sitemap.xml', [SeoController::class, 'sitemap'])->name('sitemap');
 Route::get('/robots.txt', [SeoController::class, 'robots'])->name('robots');
 Route::get('/nossa-terra', RegionalHubController::class)->name('nossa-terra');
+Route::get('/nossa-terra/ferramentas/{slug}', [RegionalHubController::class, 'tool'])->name('regional-tools.show');
 Route::get('/busca/sugestoes', SearchSuggestionController::class)->middleware('throttle:60,1')->name('search.suggestions');
 Route::get('/minha-regiao', MyRegionController::class)->name('my-region');
 Route::get('/calendario-rural', [RuralCalendarController::class, 'index'])->name('rural-calendar.index');

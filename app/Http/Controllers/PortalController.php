@@ -42,6 +42,7 @@ class PortalController extends Controller
             'publications' => $query->latest('published_at')->paginate(8)->withQueryString(),
             'photographicMemories' => $photographicMemories,
             'notebooks' => $notebooks,
+            'featuredTools' => RegionalHubController::featuredPublicTools(),
             'categories' => $this->optionalAreaEnabled('show_categories') ? Category::orderBy('name')->get(['name', 'slug']) : collect(),
             'collections' => $this->optionalAreaEnabled('show_collections') ? Collection::whereHas('publications', fn ($publication) => $publication->whereIn('status', ['published', 'scheduled'])->where('published_at', '<=', now()))->withCount(['publications' => fn ($publication) => $publication->whereIn('status', ['published', 'scheduled'])->where('published_at', '<=', now())])->orderByDesc('is_featured')->orderBy('name')->limit(4)->get(['id', 'name', 'slug', 'description']) : collect(),
             'saying' => $this->optionalAreaEnabled('show_sayings') ? Saying::where('status', 'published')->inRandomOrder()->first(['phrase', 'meaning', 'source_note']) : null,

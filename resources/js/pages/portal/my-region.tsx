@@ -7,6 +7,7 @@ import { getMunicipalityPreference, saveMunicipalityPreference } from '@/lib/loc
 import PortalPageHero from '@/components/portal-page-hero';
 import PortalSeo from '@/components/portal-seo';
 import { zarcLinkTitle, zarcPanelUrl } from '@/lib/official-links';
+import { toolPath, type ToolId } from '@/lib/regional-tools-catalog';
 
 type State = { code: string; name: string };
 type MunicipalityOption = { code: string; name: string };
@@ -18,7 +19,7 @@ type RegionData = { municipality: { name: string; code: string; state_code: stri
 type Props = { states: State[]; municipalities: MunicipalityOption[]; filters: { state: string; municipality_code: string }; regionData: RegionData | null };
 
 const date = (value: string) => new Date(`${value.slice(0, 10)}T12:00:00`).toLocaleDateString('pt-BR');
-const toolMatches: [RegExp, string, string][] = [
+const toolMatches: [RegExp, ToolId, string][] = [
     [/arroz|soja|milho|trigo|feijão|semente/i, 'seed', 'Sementes por área'],
     [/bovin|gado|vaca|leite/i, 'milk', 'Produção de leite'],
     [/ovino|ovelha|lã/i, 'wool', 'Lã ovina'],
@@ -94,7 +95,7 @@ export default function MyRegion({ states, municipalities, filters, regionData }
 
                 {regionData.stateGuides.length > 0 && <section aria-labelledby="state-guides"><header className="flex flex-wrap items-end justify-between gap-3"><div><p className="text-xs font-bold uppercase tracking-widest text-[#bb623e]">Referências do estado</p><h2 id="state-guides" className="mt-1 font-serif text-2xl font-bold text-[#31453b]">Cadernos produtivos para {regionData.municipality.state_name}</h2><p className="mt-1 text-sm text-stone-600">Conteúdo estadual ou geral; não significa que a atividade ocorra neste município.</p></div><Link href={productionHref} className="text-sm font-semibold underline">Ver todos</Link></header><div className="mt-4 grid gap-3 md:grid-cols-2">{regionData.stateGuides.map(guide => <article key={guide.id} className="rounded-xl border border-[#ded5c5] bg-white p-4"><p className="text-xs font-bold uppercase tracking-wider text-[#bb623e]">{guide.category}</p><h3 className="mt-1 font-serif text-lg font-bold"><Link href={`/nossa-terra/producao/${guide.slug}`} className="text-[#31453b] underline">{guide.title}</Link></h3>{guide.summary && <p className="mt-2 text-sm text-stone-600">{guide.summary}</p>}{guide.source_name && guide.source_url && <a href={guide.source_url} target="_blank" rel="noreferrer" className="mt-2 inline-flex items-center gap-1 text-xs font-semibold underline">{guide.source_name} · referência {guide.reference_date ? date(guide.reference_date) : 'sem data'} <ExternalLink className="h-3 w-3"/></a>}</article>)}</div></section>}
 
-                <section aria-labelledby="local-tools" className="rounded-2xl border border-[#ded5c5] bg-[#fbf8f1] p-5"><p className="text-xs font-bold uppercase tracking-widest text-[#bb623e]">Serviços da Nossa Terra</p><h2 id="local-tools" className="mt-1 font-serif text-xl font-bold text-[#31453b]">Atalhos para continuar</h2><div className="mt-3 flex flex-wrap gap-3"><Link href={calendarHref} className="rounded-full border px-4 py-2 text-sm font-semibold text-[#31453b] underline">Calendário e ZARC · {regionData.municipality.name}</Link><Link href={agendaHref} className="rounded-full border px-4 py-2 text-sm font-semibold text-[#31453b] underline">Agenda e feriados</Link>{tools.map(([, id, label]) => <Link key={id} href={`/nossa-terra?ferramenta=${id}`} className="inline-flex items-center gap-1 rounded-full border px-4 py-2 text-sm font-semibold text-[#31453b] underline"><Wheat className="h-4 w-4"/>{label}</Link>)}</div></section>
+                <section aria-labelledby="local-tools" className="rounded-2xl border border-[#ded5c5] bg-[#fbf8f1] p-5"><p className="text-xs font-bold uppercase tracking-widest text-[#bb623e]">Serviços da Nossa Terra</p><h2 id="local-tools" className="mt-1 font-serif text-xl font-bold text-[#31453b]">Atalhos para continuar</h2><div className="mt-3 flex flex-wrap gap-3"><Link href={calendarHref} className="rounded-full border px-4 py-2 text-sm font-semibold text-[#31453b] underline">Calendário e ZARC · {regionData.municipality.name}</Link><Link href={agendaHref} className="rounded-full border px-4 py-2 text-sm font-semibold text-[#31453b] underline">Agenda e feriados</Link>{tools.map(([, id, label]) => <Link key={id} href={toolPath(id)} className="inline-flex items-center gap-1 rounded-full border px-4 py-2 text-sm font-semibold text-[#31453b] underline"><Wheat className="h-4 w-4"/>{label}</Link>)}</div></section>
             </>}
             <p className="flex items-center gap-2 text-xs text-stone-500"><CalendarDays className="h-4 w-4"/>A consulta usa o código territorial e os registros locais disponíveis. A seleção fica na URL; não é necessário criar conta.</p>
         </main>
